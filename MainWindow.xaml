@@ -1,0 +1,307 @@
+﻿<Window x:Name="Main_Window" x:Class="ns_main.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ns_main"
+        mc:Ignorable="d"
+       Title="MainWindow" Height="800" Width="1200"  SizeToContent="WidthAndHeight" Left="0" Top="0" Background="#C8FFFFFF" Loaded="Window_Loaded" Margin="0">
+
+    <Grid x:Name="LatheGrid" HorizontalAlignment="Center" Width="1200" Height="800" Background="#FF163DE8" VerticalAlignment="Center" Margin="0">
+        <TabControl x:Name="Tab_Control" Height="800" Margin="0,0,0,-20" VerticalAlignment="Top" Width="1200" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch">
+            <TabItem x:Name="Main_TabItem" Header="Main" Margin="197.618,25,-197.618,-25" Width="47.382" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid x:Name="Main_Grid" Background="#FFE5E5E5" Width="1200" Height="800" Margin="0,25,0,-25">
+                    <TextBox x:Name="Current_Y_TextBox" HorizontalAlignment="Left" Height="20" Margin="512,499.25,0,-519.25" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
+                    <TextBox x:Name="Current_X_TextBox" HorizontalAlignment="Left" Height="20" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Margin="400,500,0,0"/>
+                    <Image x:Name="ImageCanvas" Height="90" Margin="0,39,0,0" Width="1200" HorizontalAlignment="Left" MouseMove="ImageCanvas_MouseMove" VerticalAlignment="Top"/>
+                    <Image x:Name="BlackImageCanvas"   Height="90" Margin="0,39,0,0" Width="1200"  RenderTransformOrigin="0.684,0.684" Stretch="UniformToFill" OpacityMask="#FFDCD652" Grid.Row="0" Grid.Column="0" MouseMove="BlackCanvas_MouseMove" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="X_TextBox" HorizontalAlignment="Left" Height="20" Margin="627,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="0" Grid.Column="0" RenderTransformOrigin="0.558,-3.696" d:IsHidden="False" Panel.ZIndex="1"/>
+                    <TextBox x:Name="Y_TextBox" HorizontalAlignment="Left" Height="20"  Margin="787,10,0,0"   TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Row="0" Grid.Column="0" RenderTransformOrigin="1.364,0.58" d:IsHidden="False" Panel.ZIndex="1"/>
+                    <Button x:Name="Cut_Model_Button" Content="Cut Model" HorizontalAlignment="Left" Margin="239.001,482.21,0,0" VerticalAlignment="Top" Width="115" Height="65" FontWeight="Bold" BorderBrush="Black" BorderThickness="3" Click="Cut_Model_Button_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFAE9811" Offset="0.013"/>
+                                <GradientStop Color="#FF27D327" Offset="0.623"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Label Content="x" HorizontalAlignment="Left" Margin="437,470.31,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="18" Height="38.94"/>
+                    <Label Content="Y" HorizontalAlignment="Left" Margin="542,474.63,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Development_TabItem" Header="Development" HorizontalAlignment="Left" Width="89" RenderTransformOrigin="0.675,4.509" Margin="273.618,25.04,-273.618,-25" VerticalAlignment="Top" IsSelected="True">
+
+                <Grid x:Name="TestGrid" Background="#FFE5E5E5" Width="1200">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="487*"/>
+                        <ColumnDefinition Width="713*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox x:Name="response_ListBox" HorizontalAlignment="Center" Height="300" Margin="20,142,0,0"  Grid.Column="0" Width="900" Background="#FF9ECFB0" VerticalAlignment="Top" Visibility="Visible" Grid.ColumnSpan="2"/>
+                    <Button x:Name="Button_1" Content="Button 1" HorizontalAlignment="Left" Margin="39,494.25,0,0" VerticalAlignment="Top" Width="75" Background="#FFDC1B1B" Height="20" Click="Button_Click_1"/>
+                    <Label x:Name="xStop" Content="X Stop" HorizontalAlignment="Left" Height="40" Margin="-10,622.767,0,0"  VerticalAlignment="Top" Width="100" Background="#FF1C2E16" RenderTransformOrigin="0.5,0.5" FontSize="20" Padding="20,5,5,5" FontWeight="Bold">
+
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+
+                    <Label x:Name="yStop" Content="Y Stop" HorizontalAlignment="Left" Height="40" Margin="40,622.767,0,0" VerticalAlignment="Top" Width="100" Background="#FF1C2E16" RenderTransformOrigin="0.5,0.5" FontSize="20" Padding="20,5,5,5" FontWeight="Bold">
+
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+
+                    <Label x:Name="contact" Content="  Contact" HorizontalAlignment="Left" Height="40" Margin="90,622.767,0,0"  VerticalAlignment="Top" Width="100" Background="#FF1C2E16" RenderTransformOrigin="0.5,0.5" FontSize="20" Padding="3,5,5,5" FontWeight="Bold">
+
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label Content="Fan" HorizontalAlignment="Left" Margin="232.093,558.25,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="33.94" Width="39.4"/>
+                    <Button x:Name="Button_2" Content="Button 2" HorizontalAlignment="Left" Height="20" Margin="120,495,0,0" VerticalAlignment="Top" Width="77" Background="#FF78B08A" Click="Button_2_Click" RenderTransformOrigin="0.61,0.55"/>
+                    <Label Content="%" HorizontalAlignment="Left" Margin="268.093,687.25,0,0" VerticalAlignment="Top" Width="18" Padding="0,5,5,5" FontWeight="Bold"/>
+                    <Button x:Name="Home_X_Button" Content="Home X" HorizontalAlignment="Left" Margin="119,461.25,0,0" VerticalAlignment="Top" Width="51" Click="HomeX_Button" Grid.Column="1"/>
+                    <Button x:Name="Home_Y_Button" Content="Home Y" HorizontalAlignment="Left" Margin="255,461.25,0,0" VerticalAlignment="Top" Width="48" Click="HomeY_Button" Grid.Column="1"/>
+                    <Button x:Name="GoToWoodLeft_Button" Content="Go to wood left" HorizontalAlignment="Left" Margin="118,491.29,0,0" VerticalAlignment="Top" Width="100" Click="GoToLeft_Button_CLick" Grid.Column="1"/>
+                    <Button x:Name="GoToWoodRight_Button" Content="Go to wood right" HorizontalAlignment="Left" Margin="255,491.25,0,0" VerticalAlignment="Top" Width="98" Click="GoToRight_Button_Click" Grid.Column="1"/>
+                    <TextBox x:Name="CurrentX_TextBox" HorizontalAlignment="Left" Height="20" Margin="241,611.25,0,0" TextWrapping="Wrap" Text="300" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.375,-0.913" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="2" TextChanged="CurrentX_TextBox_TextChanged" PreviewTextInput="CurrentX_TextBox_PreviewTextInput" KeyDown="CurrentX_TextBox_KeyDown" Grid.Column="1"/>
+                    <TextBox x:Name="CurrentY_TextBox" HorizontalAlignment="Left" Height="20" Margin="377,611.25,0,0" TextWrapping="Wrap" Text="300" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="2" TextChanged="CurrentY_TextBox_TextChanged" PreviewTextInput="CurrentY_TextBox_PreviewTextInput" KeyDown="CurrentY_TextBox_KeyDown" Grid.Column="1"/>
+                    <Label x:Name="X_Label" Content="X" HorizontalAlignment="Left" Margin="241,587.25,0,0" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Center" FontWeight="Bold" Grid.Column="1"/>
+                    <Label x:Name="Y_Label" Content="Y" HorizontalAlignment="Left" Margin="377,585.25,0,0" VerticalAlignment="Top" Width="48" HorizontalContentAlignment="Center" FontWeight="Bold" Grid.Column="1"/>
+                    <RadioButton x:Name="X_Radio_Button" Content="X" HorizontalAlignment="Left" Margin="241,561.25,0,0" VerticalAlignment="Top" GroupName="Axis" Checked="X_Radio_Button_Checked" IsChecked="True" Width="36" Grid.Column="1"/>
+                    <RadioButton x:Name="Y_Radio_Button" Content="Y" HorizontalAlignment="Left" Margin="377,561.25,0,0" VerticalAlignment="Top" GroupName="Axis" Checked="Y_Radio_Button_Checked" Width="36" Grid.Column="1"/>
+                    <TextBox x:Name="CurrentX_TextBox_Actual" HorizontalAlignment="Left" Height="20" Margin="241,637.25,0,0" TextWrapping="Wrap" Text="300" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.375,-0.913" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="2" IsReadOnly="True" Grid.Column="1"/>
+                    <TextBox x:Name="CurrentY_TextBox_Actual" HorizontalAlignment="Left" Height="20" Margin="377,637.25,0,0" TextWrapping="Wrap" Text="300" VerticalAlignment="Top" Width="50" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="2" IsReadOnly="True" Grid.Column="1"/>
+                    <Button x:Name="X_Go_Button" Content="Go" HorizontalAlignment="Left" Margin="207,611.25,0,0" VerticalAlignment="Top" Width="32" Height="20" FontWeight="Bold" RenderTransformOrigin="5.25,-0.3" Click="X_Go_Button_Click" BorderBrush="Black" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFCF4613" Offset="0.28"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Y_Go_Button" Content="Go" HorizontalAlignment="Left" Margin="343,611.25,0,0" VerticalAlignment="Top" Width="32" Height="20" FontWeight="Bold" RenderTransformOrigin="5.25,-0.3" VerticalContentAlignment="Center" Click="Y_Go_Button_Click" BorderBrush="Black" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFCF4613" Offset="0.28"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Home_All_Button" Content="Home All" HorizontalAlignment="Left" Margin="388,461.25,0,0" VerticalAlignment="Top" Width="51" Click="HomeAll_Button" Grid.Column="1"/>
+                    <ComboBox x:Name="Resolution_ComboBox" HorizontalAlignment="Left" Margin="107,574.25,0,0" VerticalAlignment="Top" Width="120" SelectedIndex="3" BorderBrush="Black" Text="Stepper Resolution" BorderThickness="2" Grid.Column="1">
+                        <ComboBox.Background>
+                            <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                <GradientStop Color="#FFDED78E" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ComboBox.Background>
+                    </ComboBox>
+                    <Button x:Name="Step_0_Button" Content="0" HorizontalAlignment="Left" Margin="299.2,704.29,0,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" BorderThickness="2" BorderBrush="Black" Click="Step_0_Button_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Step_1_Button" Content="1" HorizontalAlignment="Left" Margin="357,704.29,0,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" BorderThickness="2" BorderBrush="Black" Click="Step_1_Button_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Step_2_Button" Content="2" HorizontalAlignment="Left" Margin="417,704.29,0,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" BorderThickness="2" BorderBrush="Black" Click="Step_2_Button_Click">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Step_4_Button" Content="4" HorizontalAlignment="Left" Margin="477,704.29,0,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" BorderThickness="2" BorderBrush="Black" Click="Step_4_Button_Click" Grid.ColumnSpan="2">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Step_8_Button" Content="8" HorizontalAlignment="Left" Margin="58,704.29,0,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" BorderThickness="2" BorderBrush="Black" Click="Step_8_Button_Click" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Step_16_Button" Content="16" HorizontalAlignment="Left" Margin="125,704.29,0,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" BorderThickness="2" BorderBrush="Black" Click="Step_16_Button_Click" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Step_32_Button" Content="32" HorizontalAlignment="Left" Margin="193,704.29,0,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" BorderThickness="2" BorderBrush="Black" Click="Step_32_Button_Click" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Step_64_Button" Content="64" HorizontalAlignment="Left" Margin="255,704.29,0,0" VerticalAlignment="Top" Width="23" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" IsCancel="True" BorderThickness="2" BorderBrush="Black" Click="Step_64_Button_Click" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <TextBox x:Name="Approach_TextBox" HorizontalAlignment="Left" Height="20" Margin="460,646.25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" RenderTransformOrigin="-1.7,0.5" Grid.ColumnSpan="2"/>
+                    <ProgressBar x:Name="Lathing_ProgressBar" HorizontalAlignment="Left" Height="20" Margin="150,446.25,0,0" VerticalAlignment="Top" Width="320"/>
+                    <Button x:Name="Test_Button" Content="Test" HorizontalAlignment="Left" Height="30" Margin="20,558.25,0,0" VerticalAlignment="Top" Width="140" Background="#FFFFFF4C" FontWeight="Bold" FontSize="18" Click="Test_Button_Click"/>
+                    <!--
+                    <RadioButton x:Name="Fan_0_Radio" Content="0" HorizontalAlignment="Left" Margin="241.093,667.25,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="fanGroup" Checked="Fan_0_Radio_Checked"/>
+                    <RadioButton x:Name="Fan_25_Radio" Content="25" HorizontalAlignment="Left" Margin="241.093,647.25,0,0" VerticalAlignment="Top" GroupName="fanGroup" Checked="Fan_25_Radio_Checked"/>
+                    <RadioButton x:Name="Fan_50_Radio" Content="50" HorizontalAlignment="Left" Margin="241.093,627.29,0,0" VerticalAlignment="Top" GroupName="fanGroup" Checked="Fan_50_Radio_Checked"/>
+                    <RadioButton x:Name="Fan_75_Radio" Content="75" HorizontalAlignment="Left" Margin="241.093,607.25,0,0" VerticalAlignment="Top" GroupName="fanGroup" Checked="Fan_75_Radio_Checked"/>
+                    <RadioButton x:Name="Fan_100_Radio" Content="100" HorizontalAlignment="Left" Margin="241.093,586.25,0,0" VerticalAlignment="Top" GroupName="fanGroup" Checked="Fan_100_Radio_Checked"/>
+                    -->
+                    <Label Content="Distance mm" HorizontalAlignment="Left" Margin="227,465,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                    <Label x:Name="switch_1" Content=" Switch 1" HorizontalAlignment="Left" Height="40" Margin="143,621.25,0,0"  VerticalAlignment="Top" Width="100" Background="#FF1C2E16" RenderTransformOrigin="0.5,0.5" FontSize="20" Padding="3,5,5,5" FontWeight="Bold">
+
+                        <Label.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Label.RenderTransform>
+                    </Label>
+                    <Label Content="Probe" HorizontalAlignment="Left" Margin="357.643,559.31,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+                    <TextBox x:Name="Cut_Model_Text_Box" HorizontalAlignment="Left" Height="18" Margin="307.001,549.21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+                    <Label Content="Line" HorizontalAlignment="Left" Margin="270.376,548.25,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="Debug_CheckBox" Content="Debug" HorizontalAlignment="Left" Margin="26,451.25,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Click="Debug_CheckBox_Click" IsChecked="True"/>
+                    <Button x:Name="Pause_Button" Content="" HorizontalAlignment="Left" Height="55" Margin="455,571.25,0,0" VerticalAlignment="Top" Width="110" Background="Black" Click="Pause_Button_Click" FontWeight="Bold" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="2"/>
+                    <RadioButton x:Name="Pos_RadioButton" Content="+" HorizontalAlignment="Left" Margin="49.2,678.25,0,0" VerticalAlignment="Top" GroupName="posneg" IsChecked="True" Grid.Column="1"/>
+                    <RadioButton x:Name="Neg_RadioButton" Content="-" HorizontalAlignment="Left" Margin="89.2,678.29,0,0" VerticalAlignment="Top" GroupName="posneg" Grid.Column="1"/>
+                    <Button x:Name="Goto_Wood_Approach_Button" Content="Go to wood approach" HorizontalAlignment="Left" Margin="182,526.25,0,0" VerticalAlignment="Top" Width="90" Click="Goto_Wood_Approach_Button_Click" Grid.Column="1"/>
+                    <Button x:Name="Step_128_Button" Content="128" HorizontalAlignment="Left" Margin="328,704.29,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" IsCancel="True" BorderThickness="2" BorderBrush="Black" Click="Step_128_Button_Click" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <Button x:Name="Step_256_Button" Content="256" HorizontalAlignment="Left" Margin="398,704.29,0,0" VerticalAlignment="Top" Width="30" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" IsCancel="True" BorderThickness="2" BorderBrush="Black" Click="Step_256_Button_Click" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <TextBox x:Name="Lathe_Current_Y_TextBox" HorizontalAlignment="Left" Height="20" Margin="25,531.25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Grid.Column="1"/>
+                    <TextBox x:Name="Lathe_Current_X_TextBox" HorizontalAlignment="Left" Height="20" Margin="407,531.25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80"/>
+                    <Label Content="Internal" HorizontalAlignment="Left" Margin="355,496.25,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Lathe" HorizontalAlignment="Left" Margin="366,528.25,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="Pop_Button" Content="Pop" HorizontalAlignment="Left" Margin="145,673.04,0,0" VerticalAlignment="Top" Width="65" FontWeight="Bold" RenderTransformOrigin="0.696,-0.8" IsCancel="True" BorderThickness="2" BorderBrush="Black" Click="Pop_Button_Click" Grid.Column="1">
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FFFFFF4D" Offset="0.423"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                    </Button>
+                    <TextBox x:Name="MotorSpeed_TextBox" HorizontalAlignment="Left" Height="20" Margin="555,640,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="60" RenderTransformOrigin="0,0.5" IsReadOnly="True" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" Grid.Column="1">
+                        <TextBox.LayoutTransform>
+                            <TransformGroup>
+                                <ScaleTransform CenterX="0.25"/>
+                                <SkewTransform CenterX="0.25"/>
+                                <RotateTransform CenterX="0.25"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </TextBox.LayoutTransform>
+                    </TextBox>
+                    <Label Content="Motor RPM" HorizontalAlignment="Left" Margin="455,470,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1"/>
+                    <Slider x:Name="MotorSpeedSlider" HorizontalAlignment="Left" Margin="595,105,0,0" VerticalAlignment="Top" Background="#FF3ADA20" Width="20" BorderBrush="Black" Orientation="Vertical" Height="600" Maximum="6000" ValueChanged="MotorSpeedSlider_ValueChanged" TickPlacement="Both" Panel.ZIndex="2" MaxWidth="20" MaxHeight="500" Foreground="#FFE23939" TickFrequency="200" IsSnapToTickEnabled="True" Grid.Column="1" SmallChange="1" LargeChange="10" Interval="200" Visibility="Hidden"/>
+                    <TextBox x:Name="Motor_RPM_TextBox" HorizontalAlignment="Left" Height="20" Margin="470,495,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.375,-0.913" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="2" TextChanged="Motor_CurrentX_TextBox_TextChanged" PreviewTextInput="Motor_CurrentX_TextBox_PreviewTextInput" KeyDown="Motor_RPM_TextBox_KeyDown" Grid.Column="1"/>
+                    <TextBox x:Name="Slider_Input_TextBox" HorizontalAlignment="Left" Height="20" Margin="550,615,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="65" RenderTransformOrigin="0.375,-0.913" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="2" TextChanged="CurrentX_TextBox_TextChanged" PreviewTextInput="CurrentX_TextBox_PreviewTextInput" KeyDown="Slider_Input_KeyDown_TextBox" Grid.Column="1"/>
+                    <Label Content="RPM" HorizontalAlignment="Left" Margin="557,22,0,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1" RenderTransformOrigin="0.993,0.627"/>
+                    <Slider x:Name="FanSlider" HorizontalAlignment="Left" Margin="62,125,0,0" VerticalAlignment="Top" Background="#FF3ADA20" Width="20" BorderBrush="Black" Orientation="Vertical" Height="275" Maximum="20000" ValueChanged="FanSlider_ValueChanged" TickPlacement="Both" Panel.ZIndex="2" MaxWidth="20" MaxHeight="500" Foreground="#FFE23939" TickFrequency="10" IsSnapToTickEnabled="True"/>
+                    <Label Content="Probe" HorizontalAlignment="Left" Margin="52,94.04,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.346,0.037"/>
+                    <TextBox x:Name="Fan_TextBox" HorizontalAlignment="Left" Height="20" Margin="47,415,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="50" RenderTransformOrigin="0.375,-0.913" HorizontalContentAlignment="Right" BorderBrush="Black" BorderThickness="2" TextChanged="Fan_TextBox_TextChanged" PreviewTextInput="Fan_TextBox_PreviewTextInput" KeyDown="CurrentX_TextBox_KeyDown"/>
+                    <RadioButton Content="RadioButton" HorizontalAlignment="Left" Height="10" Margin="382,600,0,0" VerticalAlignment="Top" Width="0"/>
+                    <RadioButton x:Name="Probe_Off_Radio_Button" Content="Off" HorizontalAlignment="Left" Margin="362,595,0,0" VerticalAlignment="Top" Height="15" Width="65" GroupName="probe" IsChecked="True" Checked="Probe_Off_Radio_Button_Checked"/>
+                    <RadioButton x:Name="Probe_On_Radio_Button" Content="On" HorizontalAlignment="Left" Margin="362,620,0,0" VerticalAlignment="Top" Height="15" Width="65" GroupName="probe" IsChecked="True" Checked="Probe_On_Radio_Button_Checked"/>
+                    <Button x:Name="Motor_Stop_Button" Content="Stop" Grid.Column="1" HorizontalAlignment="Left" Height="25" Margin="465,610,0,0" VerticalAlignment="Top" Width="65" Background="Red" FontWeight="Bold" Click="Motor_Stop_Button_Click" RenderTransformOrigin="-0.308,0.6"/>
+                    <TextBox x:Name="Utrasonic_Distance_TextBox" HorizontalAlignment="Left" Height="20" Margin="237,495,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="95"/>
+                    <Label Content="Heartbeat" HorizontalAlignment="Left" Margin="472,40,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Grid.ColumnSpan="2"/>
+                    <TextBox x:Name="HeartbeatTextBox" HorizontalAlignment="Left" Height="23" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="40" Grid.Column="1" Background="#FFF12222"/>
+                    <ComboBox x:Name="RPM_Select_Combobox" Grid.Column="1" HorizontalAlignment="Left" Margin="535,60,0,0" VerticalAlignment="Top" Width="80" MaxDropDownHeight="1000" RenderTransformOrigin="0.494,0.629" SelectionChanged="RPM_Select_ComboBox_SelectionChanged">
+                        <ComboBoxItem Content="800"/>
+                        <ComboBoxItem Content="1000"/>
+                        <ComboBoxItem Content="1200"/>
+                        <ComboBoxItem Content="1400"/>
+                        <ComboBoxItem Content="1600"/>
+                        <ComboBoxItem Content="1800"/>
+                        <ComboBoxItem Content="2000"/>
+                        <ComboBoxItem Content="2200"/>
+                        <ComboBoxItem Content="2400"/>
+                        <ComboBoxItem Content="2600"/>
+                        <ComboBoxItem Content="2800"/>
+                        <ComboBoxItem Content="3000"/>
+                        <ComboBoxItem Content="3200"/>
+                        <ComboBoxItem Content="3400"/>
+                        <ComboBoxItem Content="3600"/>
+                        <ComboBoxItem Content="3800"/>
+                        <ComboBoxItem Content="4000"/>
+                        <ComboBoxItem Content="4200"/>
+                        <ComboBoxItem Content="4400"/>
+                        <ComboBoxItem Content="4600"/>
+                        <ComboBoxItem Content="4800"/>
+                        <ComboBoxItem Content="5000"/>
+                        <ComboBoxItem Content="5200"/>
+                        <ComboBoxItem Content="5400"/>
+                        <ComboBoxItem Content="5600"/>
+                        <ComboBoxItem Content="5800"/>
+                        <ComboBoxItem Content="6000"/>
+                    </ComboBox>
+                    <Label x:Name="Status_Label" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="310,25,0,0" VerticalAlignment="Top" Width="100" Height="100" Background="#FFEEC8C8" RenderTransformOrigin="0.5,0.5" BorderBrush="Black"/>
+                    <Slider x:Name="MotorSlider" HorizontalAlignment="Left" Margin="600,147,0,0" VerticalAlignment="Top" Background="#FF3ADA20" Width="20" BorderBrush="Black" Orientation="Vertical" Height="275" Maximum="20000" ValueChanged="MotorSlider_ValueChanged" TickPlacement="Both" Panel.ZIndex="2" MaxWidth="20" MaxHeight="500" Foreground="#FFE23939" TickFrequency="10" IsSnapToTickEnabled="True" Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="Plotting_TabItem" Header="plotting" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="80" Margin="303.618,25,-263.618,-25" RenderTransformOrigin="1.305,1.033">
+                <Grid x:Name="Plotting_Grid" Background="#FFBEC3D4">
+                    <Image x:Name="PlottingCanvas" Height="500" Margin="87,65,107,0" Width="1000" MouseMove="ImageCanvas_MouseMove" VerticalAlignment="Top" OpacityMask="#FFE0DDBB"/>
+                    <Button x:Name="ClearPlot_Button" Content="Clear" HorizontalAlignment="Left" Margin="102,660,0,0" VerticalAlignment="Top" Width="75" Click="ClearPlot_Button_Click"/>
+                    <Button x:Name="CalibrateRPM_Button" Content="Calibrate RPM" HorizontalAlignment="Left" Margin="302,665,0,0" VerticalAlignment="Top" Width="75" Click="CalibrateRPM_Button_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
+
+
